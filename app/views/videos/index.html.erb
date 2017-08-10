@@ -1,0 +1,36 @@
+<section id="signin" class="full-height cl-pd-tp-60 ng-scope">
+<div>
+ <div class="register-box" style="width:100%">
+      <div class="register-box-body">
+        <h1 class="text-center">Videos</h1>
+<br>
+<div class="table-responsive">
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @videos.each do |video| %>
+      <tr>
+        <td><%= video.title %></td>
+        <td><%= video.description %></td>
+        <td>
+        <%= link_to 'Show', video %> |
+        <%= link_to 'Edit', edit_video_path(video) %> |
+        <%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</section>
+

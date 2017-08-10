@@ -1,0 +1,51 @@
+<section id="signin" class="full-height cl-pd-tp-60 ng-scope">
+  <div>
+    <%= form_with(model: video, local: true) do |form| %>
+      <div class="register-box">
+      <div class="register-box-body">
+        <h1 class="text-center">Upload new video</h1>
+        <%= content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-danger") if flash[:error] %>
+        <%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-info") if flash[:notice] %>
+        <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-warning") if flash[:alert] %>
+      
+         <p class="login-box-msg"><!-- Login Now.. --></p>
+          <% if video.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+                <ul>
+                  <% video.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= form.text_field :title, id: :video_title, placeholder: "Title", autofocus: true, :class => "form-control border-radius-none" %>
+            </div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= form.text_area :description, id: :video_description, autofocus: true, placeholder: "Description", :class => "form-control border-radius-none" %>
+            </div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= form.file_field :attachment %>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-12 col-md-4">
+              <%= form.submit "Upload Video", class: "btn btn-success btn-b btn-flat" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</section>
+

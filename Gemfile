@@ -35,6 +35,7 @@ gem 'omniauth-twitter'
 gem 'omniauth-linkedin'
 gem 'omniauth-github'
 gem "paperclip", "~> 5.0.0" 
+gem "paperclip-av-transcoder"
 gem 'bootstrap-sass'
 gem 'activeadmin', github: 'activeadmin'
 

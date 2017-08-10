@@ -1,0 +1,49 @@
+<section id="signin" class="full-height cl-pd-tp-60 ng-scope">
+<div>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="register-box">
+      <div class="register-box-body">
+        <h1 class="text-center">Sign In</h1>
+        <%= content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-danger") if flash[:error] %>
+        <%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-info") if flash[:notice] %>
+        <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-warning") if flash[:alert] %>
+
+        <p class="login-box-msg"><!-- Login Now.. --></p>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "form-control border-radius-none" %>
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "form-control border-radius-none" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <% if devise_mapping.rememberable? -%>
+                <div class=" text-small small-font checkbox left-22" %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label 'Remember me', :class => "left--22" %>
+                </div>
+              <% end -%>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <%= f.submit "Login", :class => "btn btn-success btn-block btn-flat" %>
+            </div>
+          </div>
+          <%= link_to("Forgot your password?", new_password_path(resource_name), :class => 'text-center') %>
+          <br>
+          <%= render "devise/shared/links" %>
+          <!-- /.form-box -->
+        </div>
+        <!-- /.register-box -->
+      </div>
+    <% end %>
+  </div>
+</section>

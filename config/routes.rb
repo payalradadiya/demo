@@ -2,6 +2,7 @@ Rails.application.routes.draw do
    
  
   
+  resources :videos
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   devise_for :users, :controllers => { omniauth_callbacks: "users/omniauth_callbacks" }
@@ -10,8 +11,9 @@ Rails.application.routes.draw do
    #get 'sign_in' => 'users/sessions#new', :as => "sign_in"
    #get 'sign_up' => 'users/registrations#new', :as => "sign_up"  
    #get 'sign_out' => 'users/sessions#destroy', :as => "sign_out" 
-   #get 'home/index'
-   #root 'home#index' 
+   get 'home/index'
+   root 'home#index' 
    root to: "photos#index"
+   root "videos#index"
    resources :photos
 end

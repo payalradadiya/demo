@@ -22,7 +22,7 @@ ActiveAdmin.register Book do
       actions
     end
     filter :name
-		filter :author
-		filter :genre
+		filter :author, :as => :check_boxes
+		filter :genre, :as => :check_boxes
 		filter :price
 end

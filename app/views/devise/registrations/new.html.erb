@@ -1,0 +1,62 @@
+<section id="register" class="full-height cl-pd-tp-60 robot-font">
+  <div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      
+
+      <div class="register-box">
+        <div class="register-box-body">
+          <h1 class="text-center">Sign Up</h1>
+          
+            <%= content_tag(:div, flash[:error], :id => "flash_error", :class => "alert alert-danger") if flash[:error] %>
+            <%= content_tag(:div, flash[:notice], :id => "flash_notice", :class => "alert alert-info") if flash[:notice] %>
+            <%= content_tag(:div, flash[:alert], :id => "flash_alert", :class => "alert alert-warning") if flash[:alert] %>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= f.email_field :email, autofocus: true, placeholder: "Email", :class => "form-control border-radius-none" %>
+              <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class => "form-control  border-radius-none" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="form-group has-feedback">
+            <div class="field">
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "Confirm Password", :class => "form-control  border-radius-none" %>
+              <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-8">
+              <p class="text-small small-font">By clicking on Register, you agree to the <a href="#">Terms</a> and
+              <a href="#">Privacy Policy</a>.</p>
+            </div>
+            <div class="col-xs-12 col-sm-4">
+              <%= f.submit "Sign Up", :class => "btn btn-success btn-block btn-flat" %>
+            </div>
+            
+          </div>
+          <%= link_to("I already have an account", new_user_session_path, :class => 'text-center') %>
+          <%= render "devise/shared/links" %>
+          <!-- /.form-box -->
+        </div>
+        <!-- /.register-box -->
+      </div>
+    <% end %>
+    </div>
+  </div>
+</section>
+
+
+
+
+  
+
+
+
