@@ -37,7 +37,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       # Because Twitter doesn't provide user's email, it would be nice if we force user to enter it
       # manually on the registration page before we create their account.
       # Here we pass the callback parameter so that we could use it to edit the registration page.
-      redirect_to new_user_registration_url#(:callback => "twitter")
+      redirect_to new_user_registration_url(:callback => "twitter")
     end
   end
   
@@ -45,4 +45,5 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   alias_method :twitter, :all
   alias_method :linkedin, :all
   alias_method :github, :all
+  alias_method :discord, :all
 end

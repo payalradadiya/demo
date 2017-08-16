@@ -55,6 +55,13 @@ class User < ApplicationRecord
           user.oauth_user_name = auth["info"]["name"]            
           user.email = auth["info"]["email"]
           user.save
+      elsif auth.provider == "discord"
+          user.provider = auth.provider
+          user.uid = auth.uid
+          user.oauth_token = auth.credentials.token
+          
+          user.email = auth.info.email
+          user.save
           
        end
     end    
